@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Badeen+Display&family=Outfit:wght@100..900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* index.css or global.css */
+/* Your other styles go below */
+
+*{
+   font-family: "Outfit";
+
+}
+.active hr {
+  display: block; /* avoid @apply here unless using Tailwind utility class */
+}
+
+::-webkit-scrollbar{
+  @apply hidden
+}
