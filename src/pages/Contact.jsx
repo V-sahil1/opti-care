@@ -10,7 +10,7 @@ function Contact() {
         CONTACT <span className="font-semibold    ">US</span>
       </h1>
       <div className="flex flex-col md:flex-row gap-9 my-6 mx-6 ">
-        <div className="w-[40%] object-cover ">
+        <div className="w-full h-auto object-cover rounded-xl shadow-md ">
           <img src={assets.contact_image} alt="" />
         </div>
         <div className="my-1 p-3 py-2 text-gray-600 font-light">
