@@ -18,7 +18,7 @@ function Header() {
         </div>
         <div className="flex py-2 text-white  gap-3">
         <img className="lg:w-[90px] md:w-[70px] w-[70px]  " src={assets.group_profiles} alt="" />
-        <p className="text-black">
+        <p className="text-black text-md sm:text-sm">
           Simply browse through our extensive list of trusted doctors,
           <br className="hidden sm:block" /> schedule your appointment hassle-free
         </p>

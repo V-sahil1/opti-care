@@ -31,7 +31,7 @@ function Feedback() {
 
   return (
     <div className="max-w-4xl mx-auto bg-white rounded shadow-md p-8">
-      <h1 className="text-2xl text-center text-primary font-medium mb-3">
+      <h1 className="text-2xl text-center hover:text-indigo-600 text-primary font-medium mb-3">
         OptiCare Feedback Form
       </h1>
       <form onSubmit={onSubmit} className="grid sm:grid-cols-1 md:grid-cols-2 gap-6" action="">
@@ -134,7 +134,7 @@ function Feedback() {
           ></textarea>
         </div>
         <div className="md:col-span-2 text-center ">
-            <button type="submit" className="bg-indigo-500 hover:bg-indigo-600 text-center text-white px-6 py-2 rounded-full transition 
+            <button type="submit" className="bg-primary hover:bg-indigo-600 text-center text-white px-6 py-2 rounded-full transition 
             ">Submit Form</button>
         </div>
       </form>

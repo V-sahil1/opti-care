@@ -28,7 +28,7 @@ function Login() {
         ) : (
           <button id=""
             onClick={openSignIn}
-            className="bg-[#004D80] hover:bg-[#008ECF] text-white px-8 py-3 rounded-full font-light hidden md:block"
+            className="bg-[#004D80] hover:bg-[#008ECF] text-white px-8 py-3 rounded-full font-light   md:block"
           >
             Create account
           </button>
