@@ -3,7 +3,6 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Doctors from "./pages/Doctors";
-import Login from "./pages/Login";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import MyProfile from "./pages/MyProfile";
@@ -12,6 +11,7 @@ import Appointment from "./pages/Appointment";
 import Navbar from "./Componets/Navbar";
 import Footer from "./Componets/Footer";
 import Feedback from "./Componets/Feedback";
+import Login from "./Componets/Login";
 
 function App() {
   return (

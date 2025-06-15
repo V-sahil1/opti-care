@@ -51,7 +51,7 @@ function MyProfile() {
         <div className="text-[15px] mt-4">
           <div className="flex  gap-9 mt-4 py-3 flex-row">
             
-            <p className="gap-1">Email id:</p>
+            <p className="gap-1">Email :</p>
           {isEdit ? (
             <input
             className="border border-gray-200 text3xl font-medium max-w-60 "

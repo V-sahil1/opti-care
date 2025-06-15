@@ -30,7 +30,7 @@ function Login() {
             onClick={openSignIn}
             className="bg-[#004D80] hover:bg-[#008ECF] text-white px-8 py-3 rounded-full font-light   md:block"
           >
-            Create account
+            Create Account
           </button>
         )}
       </div>

@@ -27,7 +27,7 @@ function Contact() {
          <div className="mb-3">
         
           <h3 className=" text-xl">
-            <b className="text-gray-600">Careers At OptiCare</b></h3>
+            <b className="text-gray-600">Careers at OptiCare</b></h3>
           <p>Learm more about our teams and job openings.</p>
           </div>
           <div className="flex flex-col">

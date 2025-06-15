@@ -13,7 +13,7 @@ function Header() {
             Your Health, Your Schedule.
           </h1>
           <p className="text-lg md:text-xl text-green-800 lg:text-2xl font-medium mt-4">
-            Trusted Doctors Just a Click Away.
+          Trusted Doctors Just a Click Away.
           </p>
         </div>
         <div className="flex py-2 text-white  gap-3">
