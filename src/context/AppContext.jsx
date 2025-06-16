@@ -1,54 +1,58 @@
 import { createContext, useEffect, useState } from "react";
 import { doctors } from "../assets/assets_frontend/assets";
+import Swal from "sweetalert2";
 
 export const AppContext = createContext();
 const AppContextProvider = (props) => {
   const [appointment, setAppointment] = useState([]);
- 
- useEffect(()=>{
-    const save=localStorage.getItem("Appointment");
-    if(save){
-      setAppointment(JSON.parse(save))
-    }
 
-  },[]);
-  useEffect(()=>{
-  localStorage.setItem("Appointment",JSON.stringify(appointment));
-  },[appointment])
+  useEffect(() => {
+    const save = localStorage.getItem("Appointment");
+    if (save) {
+      setAppointment(JSON.parse(save));
+    }
+  }, []);
+  useEffect(() => {
+    localStorage.setItem("Appointment", JSON.stringify(appointment));
+  }, [appointment]);
 
   const addToCart = (info) => {
     const isAlreadyBooked = appointment.some(
-    (item) =>
-      item._id === info._id &&
-      item.appointmentDate === info.appointmentDate &&
-      item.appointmentTime === info.appointmentTime
-  );
+      (item) =>
+        item._id === info._id &&
+        item.appointmentDate === info.appointmentDate &&
+        item.appointmentTime === info.appointmentTime
+    );
 
-  if (isAlreadyBooked) {
-    alert("You have already booked this doctor for the same date and time.");
-    return;
-  }
-  alert("Booking confirmed. Thank you!");
+    if (isAlreadyBooked) {
+      Swal.fire({
+        title: "Already Booked!",
+        text: "You've already booked this doctor for the selected date and time.",
+        icon: "warning",
+      });
+      return;
+    }
+
+    Swal.fire({
+      title: "Success!",
+      text: "Booking confirmed. Thank you!",
+      icon: "success",
+    });
 
     console.log(info);
     setAppointment((prev) => [...prev, info]);
 
-
-
-    
     // if (!appointment[info]) {
     //   setAppointment((prev) => ({ ...prev, [info]: 1 }));
     // } else {
     //   setAppointment((prev) => ({ ...prev, [info]: prev[info] + 1 }));
     // }
   };
-  
 
-//   useEffect(() => {
-//    console.log(appointment);
-   
-//   }, [])
-  
+  //   useEffect(() => {
+  //    console.log(appointment);
+
+  //   }, [])
 
   const value = {
     doctors,

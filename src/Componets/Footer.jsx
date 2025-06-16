@@ -23,9 +23,22 @@ function Footer() {
         <div>
           <p className="text-xl font-medium mb-5">COMPANY</p>
           <ul className="flex flex-col gap-2 text-gray-600">
-            <li className="cursor-pointer" onClick={() => (navigate("/"), window.scrollTo(0, 0))}>Home</li>
-            <li className="cursor-pointer" onClick={() => (navigate("/about"), window.scrollTo(0, 0))}>About Us</li>
-            <li className="cursor-pointer" onClick={() => (navigate("/contact"), window.scrollTo(0, 0))}>
+            <li
+              className="cursor-pointer"
+              onClick={() => (navigate("/"), window.scrollTo(0, 0))}
+            >
+              Home
+            </li>
+            <li
+              className="cursor-pointer"
+              onClick={() => (navigate("/about"), window.scrollTo(0, 0))}
+            >
+              About Us
+            </li>
+            <li
+              className="cursor-pointer"
+              onClick={() => (navigate("/contact"), window.scrollTo(0, 0))}
+            >
               Contact Us
             </li>
             <li>Privacy Policy</li>

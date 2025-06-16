@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { AppContext } from "../context/AppContext";
 import { assets } from "../assets/assets_frontend/assets";
 import RelatedDoc from "../Componets/RelatedDoc";
+import Swal from "sweetalert2";
 
 function Appointment({}) {
   const daysOfWeek = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
@@ -152,24 +153,29 @@ function Appointment({}) {
               ))}
           </div>
           <button
-          onClick={() => {
-    const selectedSlot = docSlots[slotIndex].find(slot => slot.time === slotTime);
+            onClick={() => {
+              const selectedSlot = docSlots[slotIndex].find(
+                (slot) => slot.time === slotTime
+              );
 
-    if (!selectedSlot) {
-      alert("Please select a time slot first.");
-      return;
-    }
+              if (!selectedSlot) {
+                Swal.fire({
+                  title: "No Time Selected!",
+                  text: "Please select a time slot first.",
+                  icon: "info",
+                });
 
-    const appointmentData = {
-      ...docInfo,
-      appointmentDate: selectedSlot.datetime.toDateString(),
-      appointmentTime: selectedSlot.time,
-    };
+                return;
+              }
 
-    addToCart(appointmentData);
-    
+              const appointmentData = {
+                ...docInfo,
+                appointmentDate: selectedSlot.datetime.toDateString(),
+                appointmentTime: selectedSlot.time,
+              };
 
-  }}
+              addToCart(appointmentData);
+            }}
             className="bg-primary text-white text-sm font-light px-14 py-3 rounded-full my-6"
           >
             Book An Appointment

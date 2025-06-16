@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AppContext } from "../context/AppContext";
 import { QRCodeSVG } from "qrcode.react";
+import Swal from "sweetalert2";
 
 function MyAppointment() {
   const { appointment, setAppointment } = useContext(AppContext);
@@ -19,7 +20,11 @@ function MyAppointment() {
     );
 
     setAppointment(updatedList);
-    alert("Appointment cancelled successfully.");
+    Swal.fire({
+      title: "Cancelled",
+      text: "Your appointment has been cancelled successfully.",
+      icon: "success",
+    });
   };
 
   return (
@@ -52,7 +57,9 @@ function MyAppointment() {
                   </span>{" "}
                   {item.appointmentDate} | {item.appointmentTime}
                 </p>
-                <p className="text-sm text-gray-700 font-medium mb-3">Fees: ₹{item.fees}</p>
+                <p className="text-sm text-gray-700 font-medium mb-3">
+                  Fees: ₹{item.fees}
+                </p>
               </div>
               <div></div>
               <div className=" flex flex-col gap-2 justify-center items-start">
@@ -67,8 +74,7 @@ function MyAppointment() {
                   <div className="fixed inset-0 z-[99999] flex items-center justify-center bg-black bg-opacity-30">
                     <div className="bg-white p-6 rounded-lg text-center flex flex-col items-center">
                       <h2 className="text-lg font-bold text-zinc-800 mb-4">
-                        Scan QR Code to Pay ₹
-                        {item.fees  }
+                        Scan QR Code to Pay ₹{item.fees}
                       </h2>
                       <QRCodeSVG
                         value={`upi://pay?pa=vardekarsahil34@okicici&pn=VARDEKARSAHIL&am=${item.fees}&cu=INR&tn=Tomato`}

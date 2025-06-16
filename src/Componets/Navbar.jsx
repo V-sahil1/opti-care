@@ -20,16 +20,36 @@ function Navbar() {
 
       {/* Desktop Menu */}
       <ul className="hidden md:flex justify-center gap-6 items-start">
-        <NavLink to="/" className={({ isActive }) => isActive ? "font-semibold text-primary" : ""}>
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive ? "font-semibold text-primary" : ""
+          }
+        >
           <li className="py-1">Home</li>
         </NavLink>
-        <NavLink to="/doctors" className={({ isActive }) => isActive ? "font-semibold text-primary" : ""}>
+        <NavLink
+          to="/doctors"
+          className={({ isActive }) =>
+            isActive ? "font-semibold text-primary" : ""
+          }
+        >
           <li className="py-1">All Doctors</li>
         </NavLink>
-        <NavLink to="/about" className={({ isActive }) => isActive ? "font-semibold text-primary" : ""}>
+        <NavLink
+          to="/about"
+          className={({ isActive }) =>
+            isActive ? "font-semibold text-primary" : ""
+          }
+        >
           <li className="py-1">About</li>
         </NavLink>
-        <NavLink to="/contact" className={({ isActive }) => isActive ? "font-semibold text-primary" : ""}>
+        <NavLink
+          to="/contact"
+          className={({ isActive }) =>
+            isActive ? "font-semibold text-primary" : ""
+          }
+        >
           <li className="py-1">Contact</li>
         </NavLink>
       </ul>
@@ -52,10 +72,18 @@ function Navbar() {
       {/* Mobile Menu Dropdown */}
       {showMenu && (
         <div className="absolute top-full w-full left-[-2px] text-center bg-white border rounded-lg shadow-md py-4 px-2 flex flex-col gap-4 text-sm z-40 md:hidden">
-          <NavLink to="/" onClick={() => setShowmenu(false)}>Home</NavLink>
-          <NavLink to="/doctors" onClick={() => setShowmenu(false)}>All Doctors</NavLink>
-          <NavLink to="/about" onClick={() => setShowmenu(false)}>About</NavLink>
-          <NavLink to="/contact" onClick={() => setShowmenu(false)}>Contact</NavLink>
+          <NavLink to="/" onClick={() => setShowmenu(false)}>
+            Home
+          </NavLink>
+          <NavLink to="/doctors" onClick={() => setShowmenu(false)}>
+            All Doctors
+          </NavLink>
+          <NavLink to="/about" onClick={() => setShowmenu(false)}>
+            About
+          </NavLink>
+          <NavLink to="/contact" onClick={() => setShowmenu(false)}>
+            Contact
+          </NavLink>
           <div className="pt-2 border-t flex items-center justify-center">
             <Login />
           </div>
