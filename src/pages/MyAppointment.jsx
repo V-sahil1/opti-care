@@ -77,7 +77,7 @@ function MyAppointment() {
                         Scan QR Code to Pay ₹{item.fees}
                       </h2>
                       <QRCodeSVG
-                        value={`upi://pay?pa=vardekarsahil34@okicici&pn=VARDEKARSAHIL&am=${item.fees}&cu=INR&tn=Tomato`}
+                        value={`upi://pay?pa=vardesahil34@ok&pn=VARDEKARSAHIL&am=${item.fees}&cu=INR&tn=Tomato`}
                       />
 
                       <button

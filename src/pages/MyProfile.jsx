@@ -14,18 +14,22 @@ function MyProfile() {
     gender: "Male",
     dob: "2000-01-21",
   };
+
   const [userData, setUserData] = useState(defaultData);
   const [isEdit, setIsEdit] = useState(false);
+
   useEffect(() => {
     const saveData = localStorage.getItem("userProfile");
     if (saveData) {
       setUserData(JSON.parse(saveData));
     }
   }, []);
+
   const handleDate = () => {
     localStorage.setItem("userProfile", JSON.stringify(userData));
     setIsEdit(false);
   };
+
   return (
     <div className="max-w-lg flex-col flex gap-2 text-sm">
       <img className="w-36 rounded" src={userData.image} alt="" />
@@ -37,8 +41,6 @@ function MyProfile() {
             setUserData((prev) => ({ ...prev, name: e.target.value }))
           }
           type="text"
-          name=""
-          id=""
           placeholder="Enter Your Name"
           required
         />
@@ -49,22 +51,20 @@ function MyProfile() {
       )}
       <hr className="bg-zinc-400 h-[1px] border-none" />
       <div>
-        <p className="text-neutral-500  text-xl underline mt-3">
+        <p className="text-neutral-500 text-xl underline mt-3">
           Contact Information
         </p>
         <div className="text-[15px] mt-4">
-          <div className="flex  gap-9 mt-4 py-3 flex-row">
+          <div className="flex gap-9 mt-4 py-3 flex-row">
             <p className="gap-1">Email :</p>
             {isEdit ? (
               <input
-                className="border border-gray-200 text3xl font-medium max-w-60 "
+                className="border border-gray-200 text3xl font-medium max-w-60"
                 value={userData.email}
                 onChange={(e) =>
                   setUserData((prev) => ({ ...prev, email: e.target.value }))
                 }
                 type="email"
-                name=""
-                id=""
                 placeholder="Enter Your Email"
                 required
               />
@@ -75,19 +75,17 @@ function MyProfile() {
             )}
           </div>
 
-          <div className="flex  gap-9 py-3  flex-row">
+          <div className="flex gap-9 py-3 flex-row">
             <p className="pr-2">Phone:</p>
             {isEdit ? (
               <input
-                className="border border-gray-200 text3xl font-medium max-w-60 "
+                className="border border-gray-200 text3xl font-medium max-w-60"
                 value={userData.phone}
                 onChange={(e) =>
                   setUserData((prev) => ({ ...prev, phone: e.target.value }))
                 }
-                type="number"
-                name=""
-                id=""
-                placeholder="Enter Your PhoneNumber"
+                type="text"
+                placeholder="Enter Your Phone Number"
                 required
               />
             ) : (
@@ -96,42 +94,45 @@ function MyProfile() {
               </p>
             )}
           </div>
-          <div className="flex  gap-9 py-3 flex-row">
+
+          <div className="flex gap-9 py-3 flex-row">
             <p>Address:</p>
             {isEdit ? (
-              <p>
+              <div>
                 <input
-                  className="border border-gray-200 text3xl font-medium max-w-60 "
+                  className="border border-gray-200 text3xl font-medium max-w-60"
                   onChange={(e) =>
                     setUserData((prev) => ({
                       ...prev,
-                      address: { ...prev, line1: e.target.value },
+                      address: {
+                        ...prev.address,
+                        line1: e.target.value,
+                      },
                     }))
                   }
                   value={userData.address.line1}
                   type="text"
-                  name=""
-                  id=""
                   placeholder="Enter Your Address line1"
                   required
                 />
                 <br />
                 <input
-                  className="border border-gray-200 text3xl font-medium max-w-60 mt-2 "
+                  className="border border-gray-200 text3xl font-medium max-w-60 mt-2"
                   onChange={(e) =>
                     setUserData((prev) => ({
                       ...prev,
-                      address: { ...prev, line2: e.target.value },
+                      address: {
+                        ...prev.address,
+                        line2: e.target.value,
+                      },
                     }))
                   }
                   value={userData.address.line2}
                   type="text"
-                  name=""
-                  id=""
                   placeholder="Enter Your Address line2"
                   required
                 />
-              </p>
+              </div>
             ) : (
               <p>
                 {userData.address.line1}
@@ -142,8 +143,9 @@ function MyProfile() {
           </div>
         </div>
       </div>
+
       <div className="">
-        <p className="text-neutral-500  text-xl underline mt-3">
+        <p className="text-neutral-500 text-xl underline mt-3">
           Basic Information
         </p>
         <div className="grid grid-cols-[1fr_3fr] gap-y-2.5 mt-3 text-neutral-700">
@@ -158,7 +160,7 @@ function MyProfile() {
               required
             >
               <option value="Male">Male</option>
-              <option value=" Female">Female</option>
+              <option value="Female">Female</option>
             </select>
           ) : (
             <p className="text-gray-400">{userData.gender}</p>
@@ -179,6 +181,7 @@ function MyProfile() {
           )}
         </div>
       </div>
+
       <div className="mt-10">
         {isEdit ? (
           <button
@@ -189,7 +192,7 @@ function MyProfile() {
           </button>
         ) : (
           <button
-            className="border border-primary px-8 py-2 rounded-full  hover:bg-primary hover:text-white transition-all"
+            className="border border-primary px-8 py-2 rounded-full hover:bg-primary hover:text-white transition-all"
             onClick={() => setIsEdit(true)}
           >
             Edit

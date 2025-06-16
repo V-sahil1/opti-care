@@ -33,7 +33,7 @@ function Appointment({}) {
         if (now.getHours() >= 21) continue; // Skip if already too late
 
         currentDate = now;
-        currentDate.setMinutes(currentDate.getMinutes() < 30 ? 30 : 0);
+        currentDate.setMinutes(currentDate.getMinutes() <= 30 ? 30 : 0);
       } else {
         currentDate.setHours(10);
         currentDate.setMinutes(0);

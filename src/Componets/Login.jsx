@@ -1,12 +1,13 @@
 import { useClerk, UserButton, useUser } from "@clerk/clerk-react";
-import React from "react";
+import React, { useContext } from "react";
 import { FaRegCalendarDays } from "react-icons/fa6";
 import { TbBrandBooking } from "react-icons/tb";
 import { useNavigate } from "react-router-dom";
+import { AppContext } from "../context/AppContext";
 
 function Login() {
   const { openSignIn } = useClerk();
-  const { user } = useUser();
+  const {user}= useContext(AppContext);
   const navigate = useNavigate();
   return (
     <div className="flex items-center gap-4">

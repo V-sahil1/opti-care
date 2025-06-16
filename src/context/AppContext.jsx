@@ -1,10 +1,13 @@
 import { createContext, useEffect, useState } from "react";
 import { doctors } from "../assets/assets_frontend/assets";
 import Swal from "sweetalert2";
+import { useUser } from "@clerk/clerk-react";
+import Login from "../Componets/Login";
 
 export const AppContext = createContext();
 const AppContextProvider = (props) => {
   const [appointment, setAppointment] = useState([]);
+  const { user } = useUser();
 
   useEffect(() => {
     const save = localStorage.getItem("Appointment");
@@ -23,6 +26,17 @@ const AppContextProvider = (props) => {
         item.appointmentDate === info.appointmentDate &&
         item.appointmentTime === info.appointmentTime
     );
+if (!user) {
+  Swal.fire({
+    title: "Create an Account!",
+    text: "You need to sign up to book an appointment.",
+    icon: "info",
+    
+  })
+  return;
+}
+
+
 
     if (isAlreadyBooked) {
       Swal.fire({
@@ -59,6 +73,7 @@ const AppContextProvider = (props) => {
     addToCart,
     appointment,
     setAppointment,
+    user
   };
   return (
     <AppContext.Provider value={value}>{props.children}</AppContext.Provider>
